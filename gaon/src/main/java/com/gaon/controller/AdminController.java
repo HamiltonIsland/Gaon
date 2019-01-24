@@ -23,11 +23,15 @@ public class AdminController {
 	private AdminService adminService;
 
 	@RequestMapping(value="gradeList.action",method = RequestMethod.GET)
-	public String gradeList(HttpSession session) {
+	public String gradeList(HttpSession session, int academyNo, Model model) {
 		if(session.getAttribute("login")==null) {
 			return "redirect:/home.action";
 		}
-		return null;
+		
+		List<CourseVO> courses = adminService.ConsultList(academyNo);
+		model.addAttribute("courses",courses);
+
+		return "consult/consultList";
 		
 	}
 	
