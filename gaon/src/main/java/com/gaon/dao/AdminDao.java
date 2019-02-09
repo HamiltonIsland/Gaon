@@ -9,7 +9,7 @@ public interface AdminDao {
 
 	List<CourseVO> selectConsultList(int academyNo);
 
-	int selectAttendList(int studentNo, int courseNo, String string);
+	List<Integer> selectAttendList(int studentNo, int courseNo);
 
 
 

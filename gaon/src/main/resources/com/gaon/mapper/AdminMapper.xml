@@ -11,10 +11,20 @@
 select count(*) from attend where enrollno = (select enrollno from enroll where studentno=#{studentNo} and courseno=#{courseNo}) and coursedate like concat(#{string},'%')
 </select>
 
-<select id="countAttend" parameterType="hashmap" resultType="int">
-select count(*) from attend
-where enrollno = (select enrollno from enroll where studentno=#{studentNo} and courseno=#{courseNo}) and 
-coursedate like concat(#{string},'%') and attendtype = 1
+<!-- <select id="AttendAvg" parameterType="hashmap" resultType="int"> 이렇게하면순서대로나오지만 중간에 들어온사람도 다 1뤙부터 인식
+select round(avg(attendtype),2)*100
+from attend
+where enrollno = (select enrollno from enroll where studentno=#{studentNo} and courseno=#{courseNo}) 
+group by SUBSTR(coursedate, 1, 7)
+</select> -->
+
+<select id="AttendAvg" parameterType="hashmap" resultType="int">
+select round(avg(attendtype),2)*100
+from attend
+where enrollno = (select enrollno from enroll where studentno=#{studentNo} and courseno=#{courseNo}) and SUBSTR(coursedate, 7, 1) like concat(#{month},'%')
+group by SUBSTR(coursedate, 7, 1)
 </select>
+
+
 
 </mapper>

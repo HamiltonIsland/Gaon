@@ -51,33 +51,8 @@ public class AdminController {
 		if(session.getAttribute("login")==null) {
 			return "redirect:/home.action";
 		}
-		
-		int attendJan = adminService.attendList(studentNo,courseNo,"2019-01-");
-		int attendFeb = adminService.attendList(studentNo,courseNo,"2019-02-");
-		int attendMar = adminService.attendList(studentNo,courseNo,"2019-03-");
-		int attendApr = adminService.attendList(studentNo,courseNo,"2019-04-");
-		int attendMay = adminService.attendList(studentNo,courseNo,"2019-05-");
-		int attendJun = adminService.attendList(studentNo,courseNo,"2019-06-");
-		int attendJul = adminService.attendList(studentNo,courseNo,"2019-07-");
-		int attendAug = adminService.attendList(studentNo,courseNo,"2019-08-");
-		int attendSep = adminService.attendList(studentNo,courseNo,"2019-09-");
-		int attendOct = adminService.attendList(studentNo,courseNo,"2019-10-");
-		int attendNov = adminService.attendList(studentNo,courseNo,"2019-11-");
-		int attendDec = adminService.attendList(studentNo,courseNo,"2019-12-");
-		
-		model.addAttribute("Jan",attendJan);
-		model.addAttribute("Feb",attendFeb);
-		model.addAttribute("Mar",attendMar);
-		model.addAttribute("Apr",attendApr);
-		model.addAttribute("May",attendMay);
-		model.addAttribute("Jun",attendJun);
-		model.addAttribute("Jul",attendJul);
-		model.addAttribute("Aug",attendAug);
-		model.addAttribute("Sep",attendSep);
-		model.addAttribute("Oct",attendOct);
-		model.addAttribute("Nov",attendNov);
-		model.addAttribute("Dec",attendDec);
-		
+		List<Integer> averages = adminService.attendList(studentNo, courseNo);
+		model.addAttribute("Averages",averages);
 		
 		return "consult/studentAttendList";
 	}

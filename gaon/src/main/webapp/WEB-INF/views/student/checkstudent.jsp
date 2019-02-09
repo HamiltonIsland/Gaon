@@ -46,48 +46,23 @@
 											
 											<!-- 달력 -->
 											<div>
-												
-												날짜 :<input id="attendDate" class="form-control"
-													style="width: 300px; display: inline; margin-left: 10px;"
-													type="date"> 
+												날짜 :<input id="attendDate" class="form-control" style="width: 300px; display: inline; margin-left: 10px;" type="date"> 
 											</div>
 											
 											<c:forEach var="list"  items="${student}">
 												<div class="asset-inner">
-
 													<c:if test="${!list.deleted}">
 														<tr>
-														
 															<td>${list.name}</td>
 															<td>${list.phone}</td>
-															
-															<td><img style="text-align: center; width: 50px; height: 50px;"
-																src="/gaon/resources/upload/${list.savedFileName}">
-															</td>
-															<td>	
-														
-														
-																	
-																		<input type="checkbox" class="checkbox"  data-studentNo="${list.memberNo }" >
-																		출석																		
-																	
-																	<%-- <a href="javascripts:" id="absent" data-courseNo="${courseNo }" data-studentNo="${list.memberNo }"data-attend="0">
-																		<button type="button" class="btn btn-custon-rounded-two btn-danger">
-																		결석
-																		</button>																		
-																	</a> --%>
-															
+															<td><img style="text-align: center; width: 50px; height: 50px;"src="/gaon/resources/upload/${list.savedFileName}"></td>
+															<td><input type="checkbox" class="checkbox" checked="checked" data-studentNo="${list.memberNo }" >출석	
 															<input type="hidden" name="courseNo" value="${courseNo }">
-															<input type="hidden" name="memberNo" value="${list.memberNo}">
-															
-															</td>
-															
+															<input type="hidden" name="memberNo" value="${list.memberNo}"></td>
 														</tr>
 													</c:if>
 												</div>
 											</c:forEach>
-											
-
 										</table>
 									</c:when>
 									<c:otherwise>
@@ -106,18 +81,17 @@
 	<script type="text/javascript">
 	$(function(){
 		
-		
-		
 		$('#nopaymembers').find('.membercheck').each(
 				function() {
 					if ($(this).is(':checked')) {
-						memberArray.push($(this).attr(
-								'data-memberno'));
+						memberArray.push($(this).attr('data-memberno'));
 					}
 				});
 		
 		$("#attendlist").on("click","#attend",function(e){
+			
 			var memberArray = new Array();
+			var notAttendMemberList = new Array();
 			var courseNo= ${courseNo}
 			var attendDate = $("#attendDate").val();
 			
@@ -125,18 +99,17 @@
 					function(e){
 						if($(this).is(":checked")){
 							memberArray.push($(this).attr("data-studentNo"));
+						}else if($(this).not(":checked")){
+							notAttendMemberList.push($(this).attr("data-studentNo"));
 						}
 					})
 					
-			
-			
-			console.log(memberArray)
-			
+		
 			
 			$.ajax({
 				url:"/gaon/attend/checkattend.action",
 				type:"get",
-				data:{"courseNo":courseNo,"studentNoList":memberArray,"attendType":1,"attendDate":attendDate},
+				data:{"courseNo":courseNo,"studentNoList":memberArray,"attendType":1,"attendDate":attendDate,"notAttendMemberList":notAttendMemberList},
 				success:function(data,status,xhr){
 					alert("출석했습니다.");
 				}

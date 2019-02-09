@@ -9,7 +9,7 @@ public interface AdminService {
 
 	List<CourseVO> ConsultList(int academyNo);
 
-	int attendList(int studentNo, int courseNo, String string);
+	List<Integer> attendList(int studentNo, int courseNo);
 
 	
 

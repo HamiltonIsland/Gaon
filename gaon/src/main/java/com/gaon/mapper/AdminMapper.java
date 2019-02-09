@@ -12,9 +12,9 @@ public interface AdminMapper {
 
 	int selectAttendList(HashMap<String, Object> params);
 
-	int countAttend(HashMap<String, Object> params);
+//	List<Integer> AttendAvg(HashMap<String, Object> params);
 	
-	
+	int AttendAvg(HashMap<String, Object> params);
 
 
 }

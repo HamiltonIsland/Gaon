@@ -25,9 +25,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public int attendList(int studentNo, int courseNo,String string) {
+	public List<Integer> attendList(int studentNo, int courseNo) {
 		
-		int average = adminDao.selectAttendList(studentNo, courseNo, string);
+		List<Integer> average = adminDao.selectAttendList(studentNo, courseNo);
 		return average;
 	}
 	
