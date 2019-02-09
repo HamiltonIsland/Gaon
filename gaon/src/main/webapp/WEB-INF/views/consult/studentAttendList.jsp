@@ -30,18 +30,10 @@
 								</tr>
 								
 									<tr>
-										<td style="text-align: center;">${Jan}%</td>
-										<td style="text-align: center;">${Feb}%</td>
-										<td style="text-align: center;">${Mar}%</td>
-										<td style="text-align: center;">${Apr}%</td>
-										<td style="text-align: center;">${May}%</td>
-										<td style="text-align: center;">${Jun}%</td>
-										<td style="text-align: center;">${Jul}%</td>
-										<td style="text-align: center;">${Aug}%</td>
-										<td style="text-align: center;">${Sep}%</td>
-										<td style="text-align: center;">${Oct}%</td>
-										<td style="text-align: center;">${Nov}%</td>
-										<td style="text-align: center;">${Dec}%</td>
+										<c:forEach var="list" items= "${Averages}">
+											<td style="text-align: center;">${list}%</td>
+										</c:forEach>
+										
 									</tr>
 								
 							</tbody>
