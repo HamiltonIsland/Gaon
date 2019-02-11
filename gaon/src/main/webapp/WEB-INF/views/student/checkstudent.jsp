@@ -102,9 +102,8 @@
 						}else if($(this).not(":checked")){
 							notAttendMemberList.push($(this).attr("data-studentNo"));
 						}
+						
 					})
-					
-		
 			
 			$.ajax({
 				url:"/gaon/attend/checkattend.action",

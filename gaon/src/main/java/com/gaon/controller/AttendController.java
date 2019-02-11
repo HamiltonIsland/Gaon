@@ -31,7 +31,7 @@ public class AttendController {
 	//출석 체크기능
 	@RequestMapping(value = "/checkattend.action")
 	@ResponseBody	
-	public String attendcheck(@RequestParam(value="studentNoList[]") List<Integer> studentNoList,@RequestParam(value="notAttendMemberList[]") List<Integer> notAttendMemberList, 
+	public String attendcheck(@RequestParam(value="studentNoList[]",required = false) List<Integer> studentNoList,@RequestParam(value="notAttendMemberList[]", required = false) List<Integer> notAttendMemberList, 
 			int courseNo, int attendType, String attendDate) {  //String 정의 == return의 형식임
 		
 		System.out.println(notAttendMemberList);
@@ -40,9 +40,12 @@ public class AttendController {
 		attendService.attendCheckService(studentNoList.get(i), courseNo, attendType, attendDate);
 		}
 		
-		for(int i=0;i<notAttendMemberList.size();i++) {
-			attendService.attendCheckService(notAttendMemberList.get(i), courseNo, 0, attendDate);
+		if(notAttendMemberList != null) {
+			for(int i=0;i<notAttendMemberList.size();i++) {
+				attendService.attendCheckService(notAttendMemberList.get(i), courseNo, 0, attendDate);
+			}	
 		}
+		
 		
 		return "성공!";
 	}
