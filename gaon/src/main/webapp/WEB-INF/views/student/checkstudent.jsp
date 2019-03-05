@@ -19,7 +19,7 @@
 							<div class="product-status-wrap drp-lst" id="attendlist">
 								<h4>강의 목록</h4>
 								
-								<a href="javascripts:" id="attend" >
+								<a href="javascript:" id="attend" >
 									<button type="button" class="btn btn-custon-rounded-two btn-danger">
 										출석체크
 											</button>																		

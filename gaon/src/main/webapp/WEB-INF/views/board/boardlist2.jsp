@@ -92,7 +92,7 @@
 										</select>
                                     </div>
                                     
-                                    <a href="javascripts:" data-memberno="${list.memberno}" id="boardwrite">												
+                                    <a href="javascript:" data-memberno="${list.memberno}" id="boardwrite">												
 													<img src="/gaon/resources/upload/defaults.png" alt="" />												
 											</a>
                                     

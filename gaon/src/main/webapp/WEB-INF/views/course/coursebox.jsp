@@ -29,7 +29,7 @@
 															<td>${list.content }</td>
 															<td>
 																<c:if test='${login.userType=="admin"}'>
-																	<a href="javascripts:" id="deletecourse" data-courseNo="${list.courseNo}">
+																	<a href="javascript:" id="deletecourse" data-courseNo="${list.courseNo}">
 																		<button type="button" class="btn btn-custon-rounded-two btn-danger">
 																		삭제
 																		</button>																		

@@ -73,7 +73,7 @@
 													
 													<tr>
 														<td>
-														<a href="javascripts:"	data-memberNo="${list.memberNo}" id="writesboard">
+														<a href="javascript:"	data-memberNo="${list.memberNo}" id="writesboard">
 															<div class="profile-hdtc" style="width: 100px; height: 100px; float:left">
 																<img src="/gaon/resources/upload/${list.savedFileName }" class="message-avatar"	style="width: 100px; height: 100px" /> 
 															</div>

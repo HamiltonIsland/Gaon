@@ -100,7 +100,7 @@
                                     <tr>
                                         <td style="text-align: center;">${stat.count}</td>
                                         <td style="text-align: center;"><img src="/gaon/resources/upload/${studentList.savedFileName}"></td>
-                                        <td style="text-align: center;"><a class="viewConsultList" href="javascripts:" data-studentNo="${studentList.memberNo}" data-studentName= "${studentList.name}">${studentList.name}</a></td>
+                                        <td style="text-align: center;"><a class="viewConsultList" href="javascript:" data-studentNo="${studentList.memberNo}" data-studentName= "${studentList.name}">${studentList.name}</a></td>
                                         <td style="text-align: center;">
                                         <c:choose>
                                         	<c:when test="${studentList.deleted==false}">

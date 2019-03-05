@@ -143,7 +143,7 @@
 										</form>
 									</div>
 								</div>
-								<a href="javascripts:" id="writecomment"><button
+								<a href="javascript:" id="writecomment"><button
 										class="btn btn-primary" style="float: right">보내기</button></a>
 							</div>
 
