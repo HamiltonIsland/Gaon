@@ -24,12 +24,7 @@
 				method:"post",
 				success:function(data,status,xhr){
 					$("#comment").val("");
-					$("#comments").load(
-							"getscommentslist.action",
-							{"sboardNo":${sboardNo}},
-							function(){
-								$('#comments').scrollTop(10000);
-							}
+					$("#comments").load("getscommentslist.action",{"sboardNo":${sboardNo}},function(){$('#comments').scrollTop(10000);}
 							);
 				}
 			})

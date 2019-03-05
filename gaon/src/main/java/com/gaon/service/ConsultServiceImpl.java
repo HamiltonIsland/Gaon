@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.gaon.dao.ConsultDao;
+import com.gaon.dao.ConsultDaoImpl;
 import com.gaon.vo.AccountVO;
 import com.gaon.vo.ConsultVo;
 import com.gaon.vo.CourseVO;
